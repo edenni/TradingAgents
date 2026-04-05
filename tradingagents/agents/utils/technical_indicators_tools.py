@@ -26,7 +26,8 @@ def get_indicators(
     results = []
     for ind in indicators:
         try:
-            results.append(route_to_vendor("get_indicators", symbol, ind, curr_date, look_back_days))
+            result = route_to_vendor("get_indicators", symbol, ind, curr_date, look_back_days)
+            results.append(str(result))
         except ValueError as e:
             results.append(str(e))
     return "\n\n".join(results)
